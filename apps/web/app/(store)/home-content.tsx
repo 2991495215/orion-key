@@ -137,7 +137,7 @@ export function HomeContent({ products, categories, siteSlogan, siteDescription 
             className={cn(
               "rounded-lg px-3.5 py-1.5 text-sm font-semibold transition-all duration-200",
               selectedCategory === null
-                ? "bg-primary text-primary-foreground shadow-sm"
+                ? "bg-primary text-primary-foreground shadow-xs"
                 : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
             )}
           >
@@ -152,7 +152,7 @@ export function HomeContent({ products, categories, siteSlogan, siteDescription 
               className={cn(
                 "rounded-lg px-3.5 py-1.5 text-sm font-semibold transition-all duration-200",
                 selectedCategory === cat.id
-                  ? "bg-primary text-primary-foreground shadow-sm"
+                  ? "bg-primary text-primary-foreground shadow-xs"
                   : "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               )}
             >

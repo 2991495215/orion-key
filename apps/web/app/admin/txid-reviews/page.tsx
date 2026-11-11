@@ -183,7 +183,7 @@ export default function AdminTxidReviewsPage() {
       <div className="flex flex-wrap gap-3">
         <div className="relative">
           <select
-            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value as TxidReviewStatus | ""); setCurrentPage(1) }}
           >
@@ -196,7 +196,7 @@ export default function AdminTxidReviewsPage() {
       </div>
 
       {/* Table */}
-      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -583,7 +583,7 @@ export default function AdminTxidReviewsPage() {
             value={rejectReason}
             onChange={(e) => setRejectReason(e.target.value)}
             placeholder={t("admin.txidRejectReasonPlaceholder")}
-            className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none text-left"
+            className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring resize-none text-left"
             rows={2}
           />
           <div className="flex w-full gap-3">

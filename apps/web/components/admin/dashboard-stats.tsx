@@ -15,7 +15,7 @@ interface StatCardProps {
 
 function StatCard({ title, value, icon: Icon, iconBg }: StatCardProps) {
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-5 shadow-xs">
       <div className="flex items-start justify-between">
         <div className="flex flex-col gap-1">
           <span className="text-sm text-muted-foreground">{title}</span>
@@ -71,7 +71,7 @@ export function LowStockAlert({ products }: { products: LowStockProduct[] }) {
   const { t } = useLocale()
 
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-5 shadow-xs">
       <div className="mb-4 flex items-center gap-2">
         <AlertTriangle className="h-4 w-4 text-amber-500" />
         <h3 className="font-semibold text-foreground">{t("admin.lowStockWarning")}</h3>

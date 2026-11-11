@@ -1,37 +1,126 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .animate-marquee {
-    display: inline-block;
-    animation: marquee 20s linear infinite;
+  body {
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
-/* ==========================================================
+  /* ==========================================================
    Color scheme system
    Each scheme is activated via data-color="..." on <html>.
    Base tokens use warm neutrals; primary color overridden per scheme.
    App default = coral (matches context.tsx and theme-script.tsx).
    ========================================================== */
+}
 
 @layer base {
   /* ---------- Coral (default) ---------- */
@@ -235,107 +324,118 @@ body {
   }
 }
 
-/* Utility: scheme-driven gradient text */
-.scheme-gradient-text {
-  background: linear-gradient(
-    to right,
-    hsl(var(--scheme-gradient-from)),
-    hsl(var(--scheme-gradient-via)),
-    hsl(var(--scheme-gradient-to))
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+@layer utilities {
+  /* Utility: scheme-driven gradient text */
+  .scheme-gradient-text {
+    background: linear-gradient(
+      to right,
+      hsl(var(--scheme-gradient-from)),
+      hsl(var(--scheme-gradient-via)),
+      hsl(var(--scheme-gradient-to))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-/* Utility: scheme-driven gradient button (solid, primary CTA) */
-.scheme-gradient-btn {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--scheme-gradient-from)),
-    hsl(var(--scheme-gradient-via)),
-    hsl(var(--scheme-gradient-to))
-  );
-  background-size: 200% 200%;
-  background-position: 0% 50%;
-  transition: background-position 0.4s ease, filter 0.2s ease, transform 0.1s ease;
-}
-.scheme-gradient-btn:hover {
-  background-position: 100% 50%;
-}
+  /* Utility: scheme-driven gradient button (solid, primary CTA) */
+  .scheme-gradient-btn {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--scheme-gradient-from)),
+      hsl(var(--scheme-gradient-via)),
+      hsl(var(--scheme-gradient-to))
+    );
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    transition:
+      background-position 0.4s ease,
+      filter 0.2s ease,
+      transform 0.1s ease;
+  }
+  .scheme-gradient-btn:hover {
+    background-position: 100% 50%;
+  }
 
-/* Utility: scheme-driven tint button (subtle, secondary CTA) */
-.scheme-tint-btn {
-  color: hsl(var(--scheme-glow));
-  background: hsl(var(--scheme-glow) / 0.08);
-  box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.15);
-}
-.scheme-tint-btn:hover {
-  background: hsl(var(--scheme-glow) / 0.14);
-  box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.25);
-}
-.dark .scheme-tint-btn {
-  background: hsl(var(--scheme-glow) / 0.1);
-  box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.2);
-}
-.dark .scheme-tint-btn:hover {
-  background: hsl(var(--scheme-glow) / 0.18);
-  box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.3);
-}
+  /* Utility: scheme-driven tint button (subtle, secondary CTA) */
+  .scheme-tint-btn {
+    color: hsl(var(--scheme-glow));
+    background: hsl(var(--scheme-glow) / 0.08);
+    box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.15);
+  }
+  .scheme-tint-btn:hover {
+    background: hsl(var(--scheme-glow) / 0.14);
+    box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.25);
+  }
+  .dark .scheme-tint-btn {
+    background: hsl(var(--scheme-glow) / 0.1);
+    box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.2);
+  }
+  .dark .scheme-tint-btn:hover {
+    background: hsl(var(--scheme-glow) / 0.18);
+    box-shadow: inset 0 0 0 1px hsl(var(--scheme-glow) / 0.3);
+  }
 
-/* Telegram ghost button */
-.tg-ghost-btn {
-  background: rgba(0, 136, 204, 0.03);
-  border: 1px solid rgba(0, 136, 204, 0.2);
-  box-shadow: 0 2px 6px rgba(0, 136, 204, 0.05);
-}
-.tg-ghost-btn:hover {
-  background: rgba(0, 136, 204, 0.07);
-  border-color: rgba(0, 136, 204, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.1);
-}
-.dark .tg-ghost-btn {
-  background: rgba(0, 136, 204, 0.06);
-  border-color: rgba(0, 136, 204, 0.25);
-  box-shadow: 0 2px 6px rgba(0, 136, 204, 0.08);
-}
-.dark .tg-ghost-btn:hover {
-  background: rgba(0, 136, 204, 0.12);
-  border-color: rgba(0, 136, 204, 0.35);
-  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.15);
-}
+  /* Telegram ghost button */
+  .tg-ghost-btn {
+    background: rgba(0, 136, 204, 0.03);
+    border: 1px solid rgba(0, 136, 204, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 136, 204, 0.05);
+  }
+  .tg-ghost-btn:hover {
+    background: rgba(0, 136, 204, 0.07);
+    border-color: rgba(0, 136, 204, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.1);
+  }
+  .dark .tg-ghost-btn {
+    background: rgba(0, 136, 204, 0.06);
+    border-color: rgba(0, 136, 204, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 136, 204, 0.08);
+  }
+  .dark .tg-ghost-btn:hover {
+    background: rgba(0, 136, 204, 0.12);
+    border-color: rgba(0, 136, 204, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.15);
+  }
 
-/* Utility: scheme-driven glow shadow on buttons */
-.scheme-glow {
-  --tw-shadow-color: hsl(var(--scheme-glow) / 0.25);
-  --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.scheme-glow:hover {
-  --tw-shadow-color: hsl(var(--scheme-glow) / 0.35);
-  --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-}
-.dark .scheme-glow {
-  --tw-shadow-color: hsl(var(--scheme-glow) / 0.2);
-}
-.dark .scheme-glow:hover {
-  --tw-shadow-color: hsl(var(--scheme-glow) / 0.3);
-}
+  /* Utility: scheme-driven glow shadow on buttons */
+  .scheme-glow {
+    --tw-shadow-color: hsl(var(--scheme-glow) / 0.25);
+    --tw-shadow:
+      0 10px 15px -3px var(--tw-shadow-color),
+      0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow:
+      var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+      var(--tw-shadow);
+  }
+  .scheme-glow:hover {
+    --tw-shadow-color: hsl(var(--scheme-glow) / 0.35);
+    --tw-shadow:
+      0 20px 25px -5px var(--tw-shadow-color),
+      0 8px 10px -6px var(--tw-shadow-color);
+  }
+  .dark .scheme-glow {
+    --tw-shadow-color: hsl(var(--scheme-glow) / 0.2);
+  }
+  .dark .scheme-glow:hover {
+    --tw-shadow-color: hsl(var(--scheme-glow) / 0.3);
+  }
 
-/* Utility: scheme-driven glow blob */
-.scheme-blob {
-  background: radial-gradient(
-    circle,
-    hsl(var(--scheme-glow) / 0.1) 0%,
-    transparent 70%
-  );
-}
-.dark .scheme-blob {
-  background: radial-gradient(
-    circle,
-    hsl(var(--scheme-glow) / 0.15) 0%,
-    transparent 70%
-  );
+  /* Utility: scheme-driven glow blob */
+  .scheme-blob {
+    background: radial-gradient(
+      circle,
+      hsl(var(--scheme-glow) / 0.1) 0%,
+      transparent 70%
+    );
+  }
+  .dark .scheme-blob {
+    background: radial-gradient(
+      circle,
+      hsl(var(--scheme-glow) / 0.15) 0%,
+      transparent 70%
+    );
+  }
 }
 
 @layer base {

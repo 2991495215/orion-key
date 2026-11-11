@@ -293,7 +293,7 @@ export default function AdminCardKeysPage() {
         </div>
         <button
           type="button"
-          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-xs hover:bg-primary/90 transition-colors"
           onClick={() => setShowImportModal(true)}
         >
           <Upload className="h-4 w-4" />
@@ -309,7 +309,7 @@ export default function AdminCardKeysPage() {
           { label: t("admin.soldOut"), value: String(totalSold), icon: FileText, color: "text-muted-foreground" },
           { label: t("admin.invalidKeys"), value: String(totalInvalid), icon: AlertCircle, color: "text-red-500" },
         ].map((stat) => (
-          <div key={stat.label} className="rounded-xl border border-border bg-card p-4 shadow-sm">
+          <div key={stat.label} className="rounded-xl border border-border bg-card p-4 shadow-xs">
             <div className="flex items-center gap-2">
               <stat.icon className={cn("h-4 w-4", stat.color)} />
               <span className="text-sm text-muted-foreground">{stat.label}</span>
@@ -347,7 +347,7 @@ export default function AdminCardKeysPage() {
           {/* Product filter */}
           <div className="relative w-fit">
             <select
-              className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
               value={filterProductId}
               onChange={(e) => setFilterProductId(e.target.value)}
             >
@@ -359,7 +359,7 @@ export default function AdminCardKeysPage() {
             <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+          <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -431,7 +431,7 @@ export default function AdminCardKeysPage() {
 
       {/* Import Records Tab */}
       {tab === "import" && (
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -492,7 +492,7 @@ export default function AdminCardKeysPage() {
                 <label className="text-sm font-medium text-foreground">{t("admin.selectProductReq")}</label>
                 <select
                   ref={importProductRef}
-                  className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2", importErrors.product ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
+                  className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2", importErrors.product ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
                   value={importProductId}
                   onChange={(e) => { handleProductChange(e.target.value); setImportErrors(prev => ({ ...prev, product: false })) }}
                 >
@@ -511,7 +511,7 @@ export default function AdminCardKeysPage() {
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">{t("admin.selectSpec")}</label>
                   <select
-                    className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     value={importSpecId}
                     onChange={(e) => setImportSpecId(e.target.value)}
                   >
@@ -526,7 +526,7 @@ export default function AdminCardKeysPage() {
                 <label className="text-sm font-medium text-foreground">{t("admin.cardKeyContentReq")}</label>
                 <textarea
                   ref={importContentRef}
-                  className={cn("min-h-32 rounded-lg border bg-background px-3 py-2 text-sm font-mono text-foreground break-all focus:outline-none focus:ring-2", importErrors.content ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
+                  className={cn("min-h-32 rounded-lg border bg-background px-3 py-2 text-sm font-mono text-foreground break-all focus:outline-hidden focus:ring-2", importErrors.content ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
                   placeholder={t("admin.cardKeyContentPlaceholder")}
                   value={importContent}
                   onChange={(e) => { setImportContent(e.target.value); setImportErrors(prev => ({ ...prev, content: false })) }}

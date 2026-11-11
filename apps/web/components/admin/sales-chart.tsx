@@ -15,7 +15,7 @@ import type { SalesTrend } from "@/types"
 export function SalesChart({ trends }: { trends: SalesTrend[] }) {
   const { t } = useLocale()
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-5 shadow-xs">
       <div className="mb-6 flex items-center justify-between">
         <h3 className="font-semibold text-foreground">{t("admin.salesTrend")}</h3>
         <div className="flex gap-4 text-xs text-muted-foreground">

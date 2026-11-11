@@ -30,7 +30,7 @@ export function RecentOrders({ orders }: { orders: AdminOrderItem[] }) {
     }
   }
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-5 shadow-xs">
       <h3 className="mb-4 font-semibold text-foreground">{t("admin.recentOrders")}</h3>
       <div className="overflow-x-auto">
         <table className="w-full text-sm table-fixed">

@@ -140,7 +140,7 @@ export default function AdminRiskPage() {
           {/* 左列：人机验证(短) + 通用限制(长) + 待支付订单限制(中) */}
           <div className="flex flex-1 flex-col gap-6">
             {/* Turnstile (人机验证) */}
-            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+            <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
               <h3 className="mb-4 font-semibold text-foreground">人机验证 (Cloudflare Turnstile)</h3>
               <div className="flex items-center justify-between">
                 <div>
@@ -166,14 +166,14 @@ export default function AdminRiskPage() {
             </div>
 
             {/* 通用限制 */}
-            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+            <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
               <h3 className="mb-4 font-semibold text-foreground">通用限制</h3>
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs text-muted-foreground">{t("admin.ratePerSecond")}</label>
                   <input
                     type="number"
-                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     value={config.rate_limit_per_second}
                     onChange={(e) => setConfig({ ...config, rate_limit_per_second: parseInt(e.target.value) || 0 })}
                   />
@@ -182,7 +182,7 @@ export default function AdminRiskPage() {
                   <label className="text-xs text-muted-foreground">{t("admin.maxPurchasePerUser")}</label>
                   <input
                     type="number"
-                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     value={config.max_purchase_per_user}
                     onChange={(e) => setConfig({ ...config, max_purchase_per_user: parseInt(e.target.value) || 0 })}
                   />
@@ -191,7 +191,7 @@ export default function AdminRiskPage() {
                   <label className="text-xs text-muted-foreground">{t("admin.orderExpire")}</label>
                   <input
                     type="number"
-                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     value={config.order_expire_minutes}
                     onChange={(e) => setConfig({ ...config, order_expire_minutes: parseInt(e.target.value) || 0 })}
                   />
@@ -200,7 +200,7 @@ export default function AdminRiskPage() {
                   <label className="text-xs text-muted-foreground">{t("admin.maxPendingPerUser")}</label>
                   <input
                     type="number"
-                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     value={config.max_pending_orders_per_user}
                     onChange={(e) => setConfig({ ...config, max_pending_orders_per_user: parseInt(e.target.value) || 0 })}
                   />
@@ -223,7 +223,7 @@ export default function AdminRiskPage() {
           {/* 右列：设备指纹限流 */}
           <div className="flex flex-1 flex-col gap-6">
             {/* 设备指纹限流 */}
-            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+            <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
               <h3 className="mb-4 font-semibold text-foreground">设备指纹限流</h3>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
@@ -260,7 +260,7 @@ export default function AdminRiskPage() {
                     <input
                       type="number"
                       className={cn(
-                        "h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring",
+                        "h-9 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring",
                         !config.device_rate_limit_enabled && "opacity-50 cursor-not-allowed"
                       )}
                       value={config[item.key]}
@@ -279,7 +279,7 @@ export default function AdminRiskPage() {
 
       {/* Flagged Orders */}
       {tab === "flagged" && (
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>

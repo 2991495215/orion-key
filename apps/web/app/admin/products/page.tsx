@@ -369,7 +369,7 @@ export default function AdminProductsPage() {
         </div>
         <button
           type="button"
-          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-xs hover:bg-primary/90 transition-colors"
           onClick={() => setShowModal(true)}
         >
           <Plus className="h-4 w-4" />
@@ -384,14 +384,14 @@ export default function AdminProductsPage() {
           <input
             type="text"
             placeholder={t("admin.searchProduct")}
-            className="h-10 w-full rounded-lg border border-input bg-background pl-9 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="h-10 w-full rounded-lg border border-input bg-background pl-9 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1) }}
           />
         </div>
         <div className="relative">
           <select
-            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
             value={categoryFilter}
             onChange={(e) => { setCategoryFilter(e.target.value); setPage(1) }}
           >
@@ -402,7 +402,7 @@ export default function AdminProductsPage() {
         </div>
         <div className="relative">
           <select
-            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value); setPage(1) }}
           >
@@ -420,7 +420,7 @@ export default function AdminProductsPage() {
           <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+        <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -529,18 +529,18 @@ export default function AdminProductsPage() {
               {/* 商品名称 */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-foreground">{t("admin.productNameReq")}</label>
-                <input ref={titleRef} type="text" className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2", formErrors.title ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")} placeholder="请输入商品名称" value={formData.title} onChange={(e) => { setFormData({ ...formData, title: e.target.value }); setFormErrors(prev => ({ ...prev, title: false })) }} />
+                <input ref={titleRef} type="text" className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2", formErrors.title ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")} placeholder="请输入商品名称" value={formData.title} onChange={(e) => { setFormData({ ...formData, title: e.target.value }); setFormErrors(prev => ({ ...prev, title: false })) }} />
               </div>
               {/* 商品简介 */}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-foreground">{t("admin.productBrief")}</label>
-                <input type="text" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="简短描述商品特点" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} />
+                <input type="text" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring" placeholder="简短描述商品特点" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} />
               </div>
               {/* 分类 + 货币类型 */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">{t("admin.categoryReq")}</label>
-                  <select ref={categoryRef} className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2", formErrors.category_id ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")} value={formData.category_id} onChange={(e) => { setFormData({ ...formData, category_id: e.target.value }); setFormErrors(prev => ({ ...prev, category_id: false })) }}>
+                  <select ref={categoryRef} className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2", formErrors.category_id ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")} value={formData.category_id} onChange={(e) => { setFormData({ ...formData, category_id: e.target.value }); setFormErrors(prev => ({ ...prev, category_id: false })) }}>
                     <option value="">请选择分类</option>
                     {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                   </select>
@@ -548,7 +548,7 @@ export default function AdminProductsPage() {
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">货币类型</label>
                   <select
-                    className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     value={formData.currency}
                     onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
                   >
@@ -563,12 +563,12 @@ export default function AdminProductsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">{t("admin.basePriceReq")}</label>
-                  <input ref={basePriceRef} type="number" step="0.01" className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2", formErrors.base_price ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")} placeholder="0.00" value={formData.base_price} onChange={(e) => { setFormData({ ...formData, base_price: e.target.value }); setFormErrors(prev => ({ ...prev, base_price: false })) }} />
+                  <input ref={basePriceRef} type="number" step="0.01" className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2", formErrors.base_price ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")} placeholder="0.00" value={formData.base_price} onChange={(e) => { setFormData({ ...formData, base_price: e.target.value }); setFormErrors(prev => ({ ...prev, base_price: false })) }} />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">{t("admin.coverUrl")}</label>
                   <div className="flex gap-2">
-                    <input type="text" className="h-10 flex-1 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="https://..." value={formData.cover_url} onChange={(e) => setFormData({ ...formData, cover_url: e.target.value })} />
+                    <input type="text" className="h-10 flex-1 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring" placeholder="https://..." value={formData.cover_url} onChange={(e) => setFormData({ ...formData, cover_url: e.target.value })} />
                     <label className={cn("flex h-10 shrink-0 cursor-pointer items-center gap-1.5 rounded-lg border border-input bg-background px-3 text-sm font-medium text-foreground hover:bg-accent transition-colors", uploading && "pointer-events-none opacity-50")}>
                       {uploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
                       上传
@@ -603,12 +603,12 @@ export default function AdminProductsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">排序权重</label>
-                  <input type="number" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="0" value={formData.sort_order} onChange={(e) => setFormData({ ...formData, sort_order: e.target.value })} />
+                  <input type="number" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring" placeholder="0" value={formData.sort_order} onChange={(e) => setFormData({ ...formData, sort_order: e.target.value })} />
                   <p className="text-xs text-muted-foreground">数字越小越靠前，默认为 0</p>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">{t("admin.lowStockAlert")}</label>
-                  <input type="number" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="10" value={formData.low_stock_threshold} onChange={(e) => setFormData({ ...formData, low_stock_threshold: e.target.value })} />
+                  <input type="number" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring" placeholder="10" value={formData.low_stock_threshold} onChange={(e) => setFormData({ ...formData, low_stock_threshold: e.target.value })} />
                 </div>
               </div>
               {/* 上架状态 + 初始销量 */}
@@ -617,14 +617,14 @@ export default function AdminProductsPage() {
                   <label className="text-sm font-medium text-foreground">{t("admin.listingStatus")}</label>
                   <div className="flex h-10 items-center gap-2">
                     <button type="button" className={cn("relative h-6 w-11 shrink-0 rounded-full transition-colors", formData.is_enabled ? "bg-primary" : "bg-muted")} onClick={() => setFormData({ ...formData, is_enabled: !formData.is_enabled })}>
-                      <span className={cn("absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform", formData.is_enabled && "translate-x-5")} />
+                      <span className={cn("absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform", formData.is_enabled && "translate-x-5")} />
                     </button>
                     <span className="text-sm text-muted-foreground">{formData.is_enabled ? "已上架" : "已下架"}</span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">初始销量</label>
-                  <input type="number" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="0" value={formData.initial_sales} onChange={(e) => setFormData({ ...formData, initial_sales: e.target.value })} />
+                  <input type="number" className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring" placeholder="0" value={formData.initial_sales} onChange={(e) => setFormData({ ...formData, initial_sales: e.target.value })} />
                   <p className="text-xs text-muted-foreground">前台显示销量 = 真实销量 + 初始销量</p>
                 </div>
               </div>
@@ -667,7 +667,7 @@ export default function AdminProductsPage() {
                     <button type="button" className={cn("relative h-6 w-11 rounded-full transition-colors", specsEnabled ? "bg-primary" : "bg-muted")} onClick={() => {
                       if (specsEnabled) { setSpecsEnabled(false) } else { setSpecsEnabled(true); if (formSpecs.length === 0) setFormSpecs([{ name: "", price: "" }]) }
                     }}>
-                      <span className={cn("absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform", specsEnabled && "translate-x-5")} />
+                      <span className={cn("absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform", specsEnabled && "translate-x-5")} />
                     </button>
                   </div>
                 </div>
@@ -678,7 +678,7 @@ export default function AdminProductsPage() {
                       <div key={spec.id || idx} className="flex items-center gap-2">
                         <input
                           type="text"
-                          className="h-9 flex-1 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                          className="h-9 flex-1 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                           placeholder="规格名称（如：1个月、6个月）"
                           value={spec.name}
                           onChange={(e) => {
@@ -690,7 +690,7 @@ export default function AdminProductsPage() {
                         <input
                           type="number"
                           step="0.01"
-                          className="h-9 w-32 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                          className="h-9 w-32 rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                           placeholder="价格"
                           value={spec.price}
                           onChange={(e) => {
@@ -788,7 +788,7 @@ export default function AdminProductsPage() {
                 </div>
                 <textarea
                   ref={detailTextareaRef}
-                  className="min-h-32 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground font-mono focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="min-h-32 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground font-mono focus:outline-hidden focus:ring-2 focus:ring-ring"
                   placeholder={"支持 Markdown 格式编辑\n# 标题  ## 二级标题  ### 三级标题\n**粗体**  *斜体*  空一行为段落换行\n![图片描述](图片URL) — 可点击上方「插入图片」自动生成"}
                   value={formData.detail_md}
                   onChange={(e) => setFormData({ ...formData, detail_md: e.target.value })}
@@ -856,7 +856,7 @@ export default function AdminProductsPage() {
               {showImportModal && showImportModal.specs.length > 0 && (
                 <div className="flex flex-col gap-1.5">
                   <label className="text-sm font-medium text-foreground">{t("admin.selectSpec")}</label>
-                  <select className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" value={importSpecId} onChange={(e) => setImportSpecId(e.target.value)}>
+                  <select className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring" value={importSpecId} onChange={(e) => setImportSpecId(e.target.value)}>
                     <option value="">默认规格</option>
                     {showImportModal.specs.map((spec) => (
                       <option key={spec.id} value={spec.id}>{spec.name}</option>
@@ -866,7 +866,7 @@ export default function AdminProductsPage() {
               )}
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-foreground">{t("admin.importContent")}</label>
-                <textarea className="min-h-48 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground font-mono break-all focus:outline-none focus:ring-2 focus:ring-ring" placeholder={"请输入卡密，每行一个\n例如：\nXXXX-YYYY-ZZZZ-AAAA\nBBBB-CCCC-DDDD-EEEE"} value={importContent} onChange={(e) => setImportContent(e.target.value)} />
+                <textarea className="min-h-48 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground font-mono break-all focus:outline-hidden focus:ring-2 focus:ring-ring" placeholder={"请输入卡密，每行一个\n例如：\nXXXX-YYYY-ZZZZ-AAAA\nBBBB-CCCC-DDDD-EEEE"} value={importContent} onChange={(e) => setImportContent(e.target.value)} />
               </div>
               <p className="text-xs text-muted-foreground">提示：支持批量导入，每行一个卡密。导入后会自动增加对应的库存数量。</p>
             </div>

@@ -144,13 +144,13 @@ export default function AdminSiteConfigPage() {
 
       {/* Basic Info */}
       {tab === "basic" && (
-        <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
           <div className="flex flex-col gap-5 max-w-xl">
             <div className="flex flex-col gap-1.5">
               <label className="text-sm font-medium text-foreground">{t("admin.siteName")}</label>
               <input
                 type="text"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("site_name")}
                 onChange={(e) => setValue("site_name", e.target.value)}
               />
@@ -159,7 +159,7 @@ export default function AdminSiteConfigPage() {
               <label className="text-sm font-medium text-foreground">{t("admin.siteSlogan")}</label>
               <input
                 type="text"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("site_slogan")}
                 onChange={(e) => setValue("site_slogan", e.target.value)}
                 placeholder="Unlock Your AI Potential"
@@ -169,7 +169,7 @@ export default function AdminSiteConfigPage() {
             <div className="flex flex-col gap-1.5">
               <label className="text-sm font-medium text-foreground">{t("admin.siteDesc")}</label>
               <textarea
-                className="min-h-20 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="min-h-20 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("site_description")}
                 onChange={(e) => setValue("site_description", e.target.value)}
               />
@@ -180,7 +180,7 @@ export default function AdminSiteConfigPage() {
               <div className="flex gap-2">
                 <input
                   type="text"
-                  className="h-10 flex-1 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="h-10 flex-1 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                   placeholder="https://..."
                   value={getValue("logo_url")}
                   onChange={(e) => setValue("logo_url", e.target.value)}
@@ -218,7 +218,7 @@ export default function AdminSiteConfigPage() {
               <label className="text-sm font-medium text-foreground">{t("admin.footerText")}</label>
               <input
                 type="text"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("footer_text")}
                 onChange={(e) => setValue("footer_text", e.target.value)}
               />
@@ -227,7 +227,7 @@ export default function AdminSiteConfigPage() {
               <label className="text-sm font-medium text-foreground">{t("admin.githubUrl")}</label>
               <input
                 type="url"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 placeholder="https://github.com/..."
                 value={getValue("github_url")}
                 onChange={(e) => setValue("github_url", e.target.value)}
@@ -249,7 +249,7 @@ export default function AdminSiteConfigPage() {
 
       {/* Announcement */}
       {tab === "announcement" && (
-        <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
           <div className="flex flex-col gap-5 max-w-xl">
             {/* ① 顶栏滚动公告开关 */}
             <div className="flex items-center justify-between">
@@ -263,7 +263,7 @@ export default function AdminSiteConfigPage() {
                 onClick={() => toggleBool("announcement_enabled")}
               >
                 <span className={cn(
-                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform",
                   getBool("announcement_enabled") && "translate-x-5"
                 )} />
               </button>
@@ -273,7 +273,7 @@ export default function AdminSiteConfigPage() {
               <label className="text-sm font-medium text-foreground">{t("admin.scrollAnnouncement")}</label>
               <input
                 type="text"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("announcement")}
                 onChange={(e) => setValue("announcement", e.target.value)}
               />
@@ -290,7 +290,7 @@ export default function AdminSiteConfigPage() {
                 onClick={() => toggleBool("popup_enabled")}
               >
                 <span className={cn(
-                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform",
                   getBool("popup_enabled") && "translate-x-5"
                 )} />
               </button>
@@ -346,7 +346,7 @@ export default function AdminSiteConfigPage() {
               </div>
               <textarea
                 ref={popupTextareaRef}
-                className="min-h-32 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground font-mono focus:outline-none focus:ring-2 focus:ring-ring"
+                className="min-h-32 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground font-mono focus:outline-hidden focus:ring-2 focus:ring-ring"
                 placeholder={"支持 Markdown 格式编辑\n# 标题  ## 二级标题  ### 三级标题\n**粗体**  *斜体*  空一行为段落换行\n![图片描述](图片URL) — 可点击上方「插入图片」自动生成"}
                 value={getValue("popup_content")}
                 onChange={(e) => setValue("popup_content", e.target.value)}
@@ -367,7 +367,7 @@ export default function AdminSiteConfigPage() {
 
       {/* Points Setting */}
       {tab === "points" && (
-        <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
           <div className="flex flex-col gap-5 max-w-xl">
             <div className="flex items-center justify-between">
               <label className="text-sm font-medium text-foreground">{t("admin.enablePointsSystem")}</label>
@@ -380,7 +380,7 @@ export default function AdminSiteConfigPage() {
                 onClick={() => toggleBool("points_enabled")}
               >
                 <span className={cn(
-                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform",
                   getBool("points_enabled") && "translate-x-5"
                 )} />
               </button>
@@ -389,7 +389,7 @@ export default function AdminSiteConfigPage() {
               <label className="text-sm font-medium text-foreground">{t("admin.pointsRate")}</label>
               <input
                 type="number"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("points_rate")}
                 onChange={(e) => setValue("points_rate", e.target.value)}
               />
@@ -409,13 +409,13 @@ export default function AdminSiteConfigPage() {
 
       {/* Contact */}
       {tab === "contact" && (
-        <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
           <div className="flex flex-col gap-5 max-w-xl">
             <div className="flex flex-col gap-1.5">
               <label className="text-sm font-medium text-foreground">{t("admin.contactEmail")}</label>
               <input
                 type="email"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("contact_email")}
                 onChange={(e) => setValue("contact_email", e.target.value)}
               />
@@ -424,7 +424,7 @@ export default function AdminSiteConfigPage() {
               <label className="text-sm font-medium text-foreground">{t("admin.contactTelegram")}</label>
               <input
                 type="text"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("contact_telegram")}
                 onChange={(e) => setValue("contact_telegram", e.target.value)}
               />
@@ -433,7 +433,7 @@ export default function AdminSiteConfigPage() {
               <label className="text-sm font-medium text-foreground">{t("admin.contactTelegramGroup")}</label>
               <input
                 type="text"
-                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 placeholder="https://t.me/..."
                 value={getValue("contact_telegram_group")}
                 onChange={(e) => setValue("contact_telegram_group", e.target.value)}
@@ -455,7 +455,7 @@ export default function AdminSiteConfigPage() {
 
       {/* Maintenance */}
       {tab === "maintenance" && (
-        <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="rounded-xl border border-border bg-card p-6 shadow-xs">
           <div className="flex flex-col gap-5 max-w-xl">
             <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-4">
               <div className="flex items-start gap-3">
@@ -482,7 +482,7 @@ export default function AdminSiteConfigPage() {
                 onClick={handleToggleMaintenance}
               >
                 <span className={cn(
-                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                  "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform",
                   getBool("maintenance_enabled") && "translate-x-5"
                 )} />
               </button>
@@ -490,7 +490,7 @@ export default function AdminSiteConfigPage() {
             <div className="flex flex-col gap-1.5">
               <label className="text-sm font-medium text-foreground">{t("admin.maintenanceMessage")}</label>
               <textarea
-                className="min-h-20 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="min-h-20 rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 value={getValue("maintenance_message")}
                 onChange={(e) => setValue("maintenance_message", e.target.value)}
               />

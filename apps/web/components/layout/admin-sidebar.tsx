@@ -67,7 +67,7 @@ export function AdminSidebar() {
       <div className="md:hidden fixed top-0 left-0 z-40 p-3">
         <button
           type="button"
-          className="rounded-lg border border-border bg-background p-2 text-muted-foreground shadow-sm hover:text-foreground"
+          className="rounded-lg border border-border bg-background p-2 text-muted-foreground shadow-xs hover:text-foreground"
           onClick={() => setCollapsed(!collapsed)}
           aria-label="Toggle menu"
         >
@@ -79,7 +79,7 @@ export function AdminSidebar() {
         className={cn(
           "fixed inset-y-0 left-0 z-30 flex flex-col border-r border-border bg-card transition-all duration-200",
           collapsed ? "w-16" : "w-60",
-          "max-md:translate-x-[-100%] md:translate-x-0",
+          "max-md:-translate-x-full md:translate-x-0",
           !collapsed && "max-md:translate-x-0 max-md:w-60 max-md:shadow-2xl"
         )}
       >

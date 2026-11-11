@@ -127,7 +127,7 @@ export default function AdminCategoriesPage() {
         </div>
         <button
           type="button"
-          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-xs hover:bg-primary/90 transition-colors"
           onClick={() => {
             setEditId(null)
             setFormData({ name: "", sort_order: "" })
@@ -144,7 +144,7 @@ export default function AdminCategoriesPage() {
         {categories.map((cat) => (
           <div
             key={cat.id}
-            className="group flex items-center gap-4 rounded-xl border border-border bg-card p-4 shadow-sm hover:border-primary/30 transition-colors"
+            className="group flex items-center gap-4 rounded-xl border border-border bg-card p-4 shadow-xs hover:border-primary/30 transition-colors"
           >
             <div className="cursor-grab text-muted-foreground/40 hover:text-muted-foreground">
               <GripVertical className="h-5 w-5" />
@@ -198,7 +198,7 @@ export default function AdminCategoriesPage() {
                 <input
                   ref={nameRef}
                   type="text"
-                  className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2", formErrors.name ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
+                  className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2", formErrors.name ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
                   placeholder={t("admin.categoryNamePlaceholder")}
                   value={formData.name}
                   onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setFormErrors(prev => ({ ...prev, name: false })) }}
@@ -208,7 +208,7 @@ export default function AdminCategoriesPage() {
                 <label className="text-sm font-medium text-foreground">{t("admin.sortOrderLabel")}</label>
                 <input
                   type="number"
-                  className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                   placeholder={t("admin.sortOrderHint")}
                   value={formData.sort_order}
                   onChange={(e) => setFormData({ ...formData, sort_order: e.target.value })}

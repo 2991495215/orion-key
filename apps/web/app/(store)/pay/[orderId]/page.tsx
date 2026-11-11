@@ -290,7 +290,7 @@ export default function PaymentPage({ params }: { params: Promise<{ orderId: str
   return (
     <div className="mx-auto flex max-w-lg flex-col items-center gap-6 py-8">
       {/* 外层卡片框 — 标题/倒计时/品牌卡/订单信息统一收纳 */}
-      <div className="flex w-full flex-col items-center gap-4 rounded-xl border border-border bg-card p-6 shadow-sm">
+      <div className="flex w-full flex-col items-center gap-4 rounded-xl border border-border bg-card p-6 shadow-xs">
 
         {/* 标题 + 倒计时 */}
         <h1 className="text-xl font-bold text-foreground">{t("payment.waiting")}</h1>
@@ -317,7 +317,7 @@ export default function PaymentPage({ params }: { params: Promise<{ orderId: str
             </div>
 
             {/* ②③ 转账金额 + 收款地址 — 合并卡片 */}
-            <div className="flex w-full max-w-sm flex-col rounded-xl border border-border/60 bg-card shadow-sm transition-all duration-200 hover:border-border hover:shadow-md">
+            <div className="flex w-full max-w-sm flex-col rounded-xl border border-border/60 bg-card shadow-xs transition-all duration-200 hover:border-border hover:shadow-md">
               {/* 转账金额 */}
               <div className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
                 <span className="text-sm text-muted-foreground">{t("payment.usdt.amount")}（{t("payment.usdt.amountHint")}）</span>

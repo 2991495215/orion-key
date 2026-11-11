@@ -284,7 +284,7 @@ export function ProductActions({ product, channels }: ProductActionsProps) {
             value={email}
             onChange={(e) => handleEmailChange(e.target.value)}
             className={cn(
-              "h-10 w-full rounded-lg border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring",
+              "h-10 w-full rounded-lg border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring",
               emailError ? "border-destructive" : "border-input"
             )}
           />

@@ -79,7 +79,7 @@ export default function AdminOperationLogsPage() {
       <div className="flex flex-wrap gap-3">
         <div className="relative">
           <select
-            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="h-10 appearance-none rounded-lg border border-input bg-background pl-3 pr-8 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
             value={actionFilter}
             onChange={(e) => { setActionFilter(e.target.value); setCurrentPage(1) }}
           >
@@ -98,7 +98,7 @@ export default function AdminOperationLogsPage() {
       </div>
 
       {/* Table */}
-      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-xs">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

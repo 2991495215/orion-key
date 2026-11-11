@@ -62,7 +62,7 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-[60vh] items-center justify-center">
       <div className="w-full max-w-sm">
-        <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
+        <div className="rounded-lg border border-border bg-card p-6 shadow-xs">
           <h1 className="mb-6 text-center text-xl font-bold text-card-foreground">
             {t("auth.login")}
           </h1>
@@ -82,7 +82,7 @@ export default function LoginPage() {
                 value={account}
                 onChange={(e) => setAccount(e.target.value)}
                 autoComplete="username email"
-                className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 required
               />
             </div>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
-                  className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                   required
                 />
                 <button

@@ -363,7 +363,7 @@ export default function AdminPaymentChannelsPage() {
         </div>
         <button
           type="button"
-          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-xs hover:bg-primary/90 transition-colors"
           onClick={handleOpenCreate}
         >
           <Plus className="h-4 w-4" />
@@ -379,7 +379,7 @@ export default function AdminPaymentChannelsPage() {
             <div
               key={channel.id}
               className={cn(
-                "rounded-xl border bg-card p-5 shadow-sm transition-colors",
+                "rounded-xl border bg-card p-5 shadow-xs transition-colors",
                 channel.is_enabled ? "border-border" : "border-border opacity-60"
               )}
             >
@@ -582,7 +582,7 @@ export default function AdminPaymentChannelsPage() {
               <input
                 ref={channelNameRef}
                 type="text"
-                className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2", formErrors.channel_name ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
+                className={cn("h-10 rounded-lg border bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2", formErrors.channel_name ? "border-destructive ring-destructive/20" : "border-input focus:ring-ring")}
                 placeholder="显示名称（可自定义）"
                 value={formData.channel_name}
                 onChange={(e) => { setFormData({ ...formData, channel_name: e.target.value }); setFormErrors(prev => ({ ...prev, channel_name: false })) }}
@@ -616,7 +616,7 @@ export default function AdminPaymentChannelsPage() {
                   <label className="text-xs font-medium text-muted-foreground">{field.label}</label>
                   <input
                     type={field.type === "password" && !showKeys ? "password" : "text"}
-                    className="h-9 rounded-md border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="h-9 rounded-md border border-input bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     placeholder={field.placeholder}
                     value={configData[field.key] ?? ""}
                     onChange={(e) => handleConfigChange(field.key, e.target.value)}
@@ -633,7 +633,7 @@ export default function AdminPaymentChannelsPage() {
                 <label className="text-sm font-medium text-foreground">{t("admin.sortOrderLabel")}</label>
                 <input
                   type="number"
-                  className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="h-10 rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                   placeholder={t("admin.sortOrderHint")}
                   value={formData.sort_order}
                   onChange={(e) => setFormData({ ...formData, sort_order: e.target.value })}
@@ -652,7 +652,7 @@ export default function AdminPaymentChannelsPage() {
                   onClick={() => setFormData({ ...formData, is_enabled: !formData.is_enabled })}
                 >
                   <span className={cn(
-                    "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                    "absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform",
                     formData.is_enabled && "translate-x-5"
                   )} />
                 </button>

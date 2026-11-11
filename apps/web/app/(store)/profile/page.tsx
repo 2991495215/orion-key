@@ -41,7 +41,7 @@ export default function ProfilePage() {
             className={cn(
               "flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors",
               activeTab === tab.key
-                ? "bg-background text-foreground shadow-sm"
+                ? "bg-background text-foreground shadow-xs"
                 : "text-muted-foreground hover:text-foreground"
             )}
           >
@@ -141,7 +141,7 @@ function ChangePasswordForm() {
               type={showOld ? "text" : "password"}
               value={form.oldPassword}
               onChange={(e) => setForm({ ...form, oldPassword: e.target.value })}
-              className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
               required
             />
             <button
@@ -162,7 +162,7 @@ function ChangePasswordForm() {
               type={showNew ? "text" : "password"}
               value={form.newPassword}
               onChange={(e) => setForm({ ...form, newPassword: e.target.value })}
-              className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
               required
             />
             <button
@@ -182,7 +182,7 @@ function ChangePasswordForm() {
             type="password"
             value={form.confirmNew}
             onChange={(e) => setForm({ ...form, confirmNew: e.target.value })}
-            className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
             required
           />
         </div>

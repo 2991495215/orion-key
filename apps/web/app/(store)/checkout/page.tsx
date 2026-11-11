@@ -154,7 +154,7 @@ export default function CheckoutPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={t("product.emailPlaceholder")}
-            className="mb-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            className="mb-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-hidden focus:ring-1 focus:ring-primary"
           />
           <p className="text-xs text-muted-foreground">
             {t("product.emailFullHint")}

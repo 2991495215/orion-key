@@ -91,7 +91,7 @@ export function StoreHeader({ siteName }: StoreHeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
       <div className="mx-auto flex h-14 max-w-7xl items-center px-4 lg:px-6">
         {/* Logo -- fixed width to balance right actions */}
         <div className="flex min-w-0 flex-1 items-center">
@@ -125,7 +125,7 @@ export function StoreHeader({ siteName }: StoreHeaderProps) {
                     <ShoppingCart className="h-3.5 w-3.5" />
                     {link.label}
                     {cartItemCount > 0 && (
-                      <span className="relative flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold leading-none text-primary-foreground shadow-sm">
+                      <span className="relative flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold leading-none text-primary-foreground shadow-xs">
                         {cartItemCount > 99 ? "99+" : cartItemCount}
                         <span className="absolute inset-0 animate-ping rounded-full bg-primary opacity-20" />
                       </span>
@@ -274,7 +274,7 @@ export function StoreHeader({ siteName }: StoreHeaderProps) {
               )}
             </div>
           ) : (
-            <Link href="/login" className="inline-flex h-9 items-center rounded-md bg-primary text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 px-2.5 sm:px-4">
+            <Link href="/login" className="inline-flex h-9 items-center rounded-md bg-primary text-sm font-semibold text-primary-foreground shadow-xs transition-colors hover:bg-primary/90 px-2.5 sm:px-4">
               <LogIn className="h-4 w-4 sm:hidden" />
               <span className="hidden sm:inline">{t("nav.login")}</span>
             </Link>
@@ -293,7 +293,7 @@ export function StoreHeader({ siteName }: StoreHeaderProps) {
 
       {/* Expanded Search Bar + Sort/Filter */}
       {searchOpen && (
-        <div className="border-t border-border bg-background/95 backdrop-blur">
+        <div className="border-t border-border bg-background/95 backdrop-blur-sm">
           <div className="mx-auto max-w-7xl px-4 py-3 lg:px-6">
             <div className="flex items-center gap-2">
               {/* Search Input */}
@@ -305,7 +305,7 @@ export function StoreHeader({ siteName }: StoreHeaderProps) {
                   placeholder={t("home.search")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="h-10 w-full rounded-lg border border-input bg-background pl-9 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                  className="h-10 w-full rounded-lg border border-input bg-background pl-9 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
                 />
                 {searchQuery && (
                   <button
@@ -371,9 +371,9 @@ export function StoreHeader({ siteName }: StoreHeaderProps) {
               <div className="mt-3 flex flex-wrap items-center gap-3 rounded-lg border border-border bg-card px-4 py-3">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-medium text-muted-foreground">{t("home.filterPrice")}:</span>
-                  <input type="number" placeholder="Min" value={priceMin} onChange={(e) => setPriceMin(e.target.value)} className="h-8 w-20 rounded-md border border-input bg-background px-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring" />
+                  <input type="number" placeholder="Min" value={priceMin} onChange={(e) => setPriceMin(e.target.value)} className="h-8 w-20 rounded-md border border-input bg-background px-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-1 focus:ring-ring" />
                   <span className="text-xs text-muted-foreground">-</span>
-                  <input type="number" placeholder="Max" value={priceMax} onChange={(e) => setPriceMax(e.target.value)} className="h-8 w-20 rounded-md border border-input bg-background px-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring" />
+                  <input type="number" placeholder="Max" value={priceMax} onChange={(e) => setPriceMax(e.target.value)} className="h-8 w-20 rounded-md border border-input bg-background px-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-1 focus:ring-ring" />
                 </div>
                 <label className="flex cursor-pointer items-center gap-1.5">
                   <input type="checkbox" checked={inStockOnly} onChange={(e) => setInStockOnly(e.target.checked)} className="h-3.5 w-3.5 rounded border-input accent-foreground" />

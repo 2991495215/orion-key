@@ -252,7 +252,7 @@ export default function OrderQueryPage() {
               value={queryValue}
               onChange={(e) => setQueryValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-              className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-8 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-8 text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
             />
             {queryValue && (
               <button
@@ -431,7 +431,7 @@ export default function OrderQueryPage() {
                       placeholder="0x... / 64-char hex"
                       value={txidInput}
                       onChange={(e) => setTxidInput(e.target.value)}
-                      className="h-10 w-full rounded-lg border border-input bg-background px-3 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      className="h-10 w-full rounded-lg border border-input bg-background px-3 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                     />
                     <p className="flex items-start gap-1 text-xs text-amber-600 dark:text-amber-400">
                       <Info className="mt-0.5 h-3 w-3 shrink-0" />

@@ -93,7 +93,7 @@ export default function RegisterPage() {
   return (
     <div className="flex min-h-[60vh] items-center justify-center">
       <div className="w-full max-w-sm">
-        <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
+        <div className="rounded-lg border border-border bg-card p-6 shadow-xs">
           <h1 className="mb-6 text-center text-xl font-bold text-card-foreground">
             {t("auth.register")}
           </h1>
@@ -110,7 +110,7 @@ export default function RegisterPage() {
                 value={form.username}
                 onChange={(e) => update("username", e.target.value)}
                 autoComplete="username"
-                className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 required
               />
             </div>
@@ -126,7 +126,7 @@ export default function RegisterPage() {
                 value={form.email}
                 onChange={(e) => update("email", e.target.value)}
                 autoComplete="email"
-                className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="h-10 w-full rounded-lg border border-input bg-background px-3 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                 required
               />
             </div>
@@ -143,7 +143,7 @@ export default function RegisterPage() {
                   value={form.password}
                   onChange={(e) => update("password", e.target.value)}
                   autoComplete="new-password"
-                  className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="h-10 w-full rounded-lg border border-input bg-background px-3 pr-10 text-sm text-foreground focus:outline-hidden focus:ring-2 focus:ring-ring"
                   required
                 />
                 <button
@@ -169,7 +169,7 @@ export default function RegisterPage() {
                   onChange={(e) => update("captcha", e.target.value.toUpperCase())}
                   maxLength={6}
                   placeholder="请输入验证码"
-                  className="h-10 flex-1 rounded-lg border border-input bg-background px-3 text-sm uppercase text-foreground tracking-wider focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="h-10 flex-1 rounded-lg border border-input bg-background px-3 text-sm uppercase text-foreground tracking-wider focus:outline-hidden focus:ring-2 focus:ring-ring"
                   required
                 />
                 <div

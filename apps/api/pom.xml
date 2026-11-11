@@ -18,12 +18,12 @@
     <description>Orion Key - Automated Card Key Delivery Platform</description>
 
     <properties>
-        <java.version>22</java.version>
+        <java.version>21</java.version>
         <tomcat.version>10.1.60</tomcat.version>
         <jackson-bom.version>2.21.7</jackson-bom.version>
         <postgresql.version>42.7.12</postgresql.version>
-        <jjwt.version>0.12.6</jjwt.version>
-        <hutool.version>5.8.32</hutool.version>
+        <jjwt.version>0.13.0</jjwt.version>
+        <hutool.version>5.8.48</hutool.version>
     </properties>
 
     <dependencies>

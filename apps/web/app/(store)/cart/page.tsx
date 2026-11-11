@@ -70,7 +70,7 @@ export default function CartPage() {
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex items-center gap-3 rounded-lg border border-border bg-background p-3 transition-colors hover:border-muted-foreground/20 hover:shadow-sm sm:gap-4 sm:p-4"
+            className="flex items-center gap-3 rounded-lg border border-border bg-background p-3 transition-colors hover:border-muted-foreground/20 hover:shadow-xs sm:gap-4 sm:p-4"
           >
             {/* Product Image */}
             <div className="h-16 w-16 shrink-0 overflow-hidden rounded-md bg-muted sm:h-20 sm:w-20">
@@ -147,7 +147,7 @@ export default function CartPage() {
       </div>
 
       {/* Checkout Bar - fixed bottom */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-sm shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-xs shadow-lg">
         <div className="container mx-auto flex items-center justify-between p-4">
           <div className="text-sm text-muted-foreground">
             {t("cart.selected")} <span className="font-semibold text-foreground">{totalQty}</span>{" "}
